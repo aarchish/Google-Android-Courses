@@ -1,3 +1,5 @@
+import com.codelabs.state.WellnessTask
+
 /*
  * Copyright 2022 The Android Open Source Project
  *
@@ -13,6 +15,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import androidx.compose.runtime.toMutableStateList
+import androidx.lifecycle.ViewModel
+
+class WellnessViewModel : ViewModel() {
+    private val _tasks = getWellnessTasks().toMutableStateList()
+    val tasks: List<WellnessTask>
+        get() = _tasks
+
+
+    fun remove(item: WellnessTask) {
+        _tasks.remove(item)
+    }
+
+    fun changeTaskChecked(item: WellnessTask, checked: Boolean) =
+        _tasks.find { it.id == item.id }?.let { task ->
+            task.checked = checked
+        }
+}
+
+private fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task # $i") }
+
+
+
+
+
+
+
+
+/*
 package com.codelabs.state
 
 import androidx.compose.runtime.toMutableStateList
@@ -39,3 +71,4 @@ class WellnessViewModel : ViewModel() {
 }
 
 private fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task # $i") }
+ */
