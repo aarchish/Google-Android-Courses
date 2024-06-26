@@ -29,6 +29,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -72,9 +73,12 @@ fun ReplyEmailListItem(
                 ) {
                     Text(
                         text = email.sender.firstName,
+                        style = MaterialTheme.typography.labelMedium
                     )
+
                     Text(
                         text = email.createdAt,
+                        style = MaterialTheme.typography.labelMedium
                     )
                 }
                 IconButton(
@@ -92,11 +96,14 @@ fun ReplyEmailListItem(
 
             Text(
                 text = email.subject,
+                style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
             )
+
             Text(
                 text = email.body,
                 maxLines = 2,
+                style = MaterialTheme.typography.bodyLarge,
                 overflow = TextOverflow.Ellipsis
             )
         }
