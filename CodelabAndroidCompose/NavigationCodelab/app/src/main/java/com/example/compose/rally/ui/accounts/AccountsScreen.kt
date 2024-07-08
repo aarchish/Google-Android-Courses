@@ -27,6 +27,7 @@ import com.example.compose.rally.R
 import com.example.compose.rally.data.UserData
 import com.example.compose.rally.ui.components.AccountRow
 import com.example.compose.rally.ui.components.StatementBody
+import androidx.navigation.navDeepLink
 
 /**
  * The Accounts screen.
